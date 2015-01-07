@@ -28,7 +28,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'Kaceyr/vim-colors-solarized'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -61,11 +61,6 @@ endif
 if has("gui_running")
   set background=dark
   colorscheme solarized
-  highlight clear SignColumn
-  highlight GitGutterAdd ctermfg=green guifg=darkgreen
-  highlight GitGutterChange ctermfg=yellow guifg=darkyellow
-  highlight GitGutterDelete ctermfg=red guifg=darkred
-  highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
   "set guifont=Monaco:h12
   set guifont=Monaco\ for\ Powerline
   let g:NERDTreeWinPos = "right"
