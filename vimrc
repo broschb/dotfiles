@@ -12,6 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
 Bundle 'skalnik/vim-vroom'
 Plugin 'henrik/vim-ruby-runner'
 Plugin 'bronson/vim-trailing-whitespace'
@@ -42,11 +43,12 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+set number
 set tabstop=2
 set shiftwidth=2
 set expandtab
-let g:SuperTabMappingForward = '<C-Space>'
-let g:SuperTabMappingBackward = '<S-C-Space>'
+let g:SuperTabMappingForward = '<c-space>'
+let g:SuperTabMappingBackward = '<s-c-space>'
 
 nmap <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
@@ -59,7 +61,13 @@ endif
 if has("gui_running")
   set background=dark
   colorscheme solarized
-  set guifont=Monaco:h12
+  highlight clear SignColumn
+  highlight GitGutterAdd ctermfg=green guifg=darkgreen
+  highlight GitGutterChange ctermfg=yellow guifg=darkyellow
+  highlight GitGutterDelete ctermfg=red guifg=darkred
+  highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
+  "set guifont=Monaco:h12
+  set guifont=Monaco\ for\ Powerline
   let g:NERDTreeWinPos = "right"
   set guioptions-=T " Removes top toolbar
   set guioptions-=r " Removes right hand scroll bar
@@ -67,3 +75,5 @@ if has("gui_running")
   autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
   :set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
 endif
+let g:airline_powerline_fonts=1
+
