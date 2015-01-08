@@ -47,9 +47,8 @@ set number
 set tabstop=2
 set shiftwidth=2
 set expandtab
-let g:SuperTabMappingForward = '<c-space>'
-let g:SuperTabMappingBackward = '<s-c-space>'
-
+let g:SuperTabMappingForward = '<nul>'
+let g:SuperTabMappingBackward = '<s-nul>'
 nmap <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '\.class$', '\~']
@@ -61,14 +60,16 @@ endif
 if has("gui_running")
   set background=dark
   colorscheme solarized
-  "set guifont=Monaco:h12
-  set guifont=Monaco\ for\ Powerline
+  "set guifont=Monaco:h14
+  set guifont=Monaco\ for\ Powerline:h14
   let g:NERDTreeWinPos = "right"
   set guioptions-=T " Removes top toolbar
   set guioptions-=r " Removes right hand scroll bar
   set go-=L " Removes left hand scroll bar
   autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
   :set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
+  let g:SuperTabMappingForward = '<c-space>'
+  let g:SuperTabMappingBackward = '<s-c-space>'
 endif
 let g:airline_powerline_fonts=1
 
