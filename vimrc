@@ -29,6 +29,9 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Bundle 'Kaceyr/vim-colors-solarized'
+Bundle 'jpo/vim-railscasts-theme'
+Plugin 'chrisbra/csv.vim'
+Bundle 'mileszs/ack.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -50,19 +53,26 @@ set expandtab
 let g:SuperTabMappingForward = '<nul>'
 let g:SuperTabMappingBackward = '<s-nul>'
 nmap <leader>n :NERDTreeToggle<CR>
+nmap <D-F> :Ack<space>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '\.class$', '\~']
+let base16colorspace=256
+:set laststatus=2
+
+" $HOME/.vimrc
+:set directory=$HOME/.vim/swapfiles//
 
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<D-S-t>
 endif
+colorscheme railscasts
 
 if has("gui_running")
   set background=dark
-  colorscheme solarized
+  colorscheme railscasts
   "set guifont=Monaco:h14
   set guifont=Monaco\ for\ Powerline:h14
-  let g:NERDTreeWinPos = "right"
+  let g:NERDTreeWinPos = "left"
   set guioptions-=T " Removes top toolbar
   set guioptions-=r " Removes right hand scroll bar
   set go-=L " Removes left hand scroll bar
@@ -70,6 +80,11 @@ if has("gui_running")
   :set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
   let g:SuperTabMappingForward = '<c-space>'
   let g:SuperTabMappingBackward = '<s-c-space>'
+else
+  syntax on
+  set background=dark
+  let g:NERDTreeWinPos = "right"
+  autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly  
 endif
 let g:airline_powerline_fonts=1
 
