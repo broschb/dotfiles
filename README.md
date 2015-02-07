@@ -1,5 +1,6 @@
-# put .vimrc into home dir
+
 # dotfiles
+put .vimrc into home dir
 Install Vundle
 ```
 $ mkdir ~/.vim/bundle
